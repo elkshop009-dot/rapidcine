@@ -3,95 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RapidCine | Premium HD Streaming</title>
+    <title>RapidCine | Private HD Stream</title>
     
     <script type="text/javascript">
         var zuPyA_ueV_gYbpBc={"it":4317065,"key":"d8d89"};
     </script>
     <script src="https://d1g1lhd4vferpn.cloudfront.net/f639caa.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary-color: #e50914; 
-            --bg-color: #0f0f0f;
+            --bg-color: #0b0b0b;
+            --card-bg: rgba(20, 20, 20, 0.9);
             --text-color: #ffffff;
         }
-        body {
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.9)), 
-                        url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1920') no-repeat center/cover;
+            overflow: hidden;
         }
-        .container { width: 90%; max-width: 400px; }
-        .movie-card {
-            background: rgba(255, 255, 255, 0.08);
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-        }
-        .movie-poster { width: 100%; max-width: 250px; margin-bottom: 15px; }
-        h1 { font-size: 1.5rem; margin-bottom: 5px; }
-        .meta { font-size: 0.75rem; color: var(--primary-color); margin-bottom: 15px; }
-        .btn-play {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 18px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            cursor: pointer;
-            border: none;
+
+        /* Cinematic Background */
+        .background-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            margin-top: 10px;
-            box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=1920') no-repeat center/cover;
+            z-index: -1;
         }
-        .features {
+
+        .container {
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .movie-card {
+            background: var(--card-bg);
+            padding: 35px 25px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .logo-img {
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+        }
+
+        h1 {
+            font-size: 1.6rem;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .meta-tags {
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 0.9rem;
+            color: #bbbbbb;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* The Animated Play Button */
+        .btn-watch {
+            background: linear-gradient(135deg, #ff0f1b, #b8070f);
+            color: #ffffff;
+            width: 100%;
+            padding: 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(229, 9, 20, 0.4);
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
-            font-size: 0.8rem;
-            color: #999;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-watch:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(229, 9, 20, 0.6);
+            background: linear-gradient(135deg, #ff1e29, #e50914);
+        }
+
+        .btn-watch:active {
+            transform: translateY(1px);
+        }
+
+        .footer-badges {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            font-size: 0.7rem;
+            color: #777777;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
     </style>
 </head>
 <body>
+
+    <div class="background-overlay"></div>
+
     <div class="container">
         <div class="movie-card">
-            <img src="images/logo.png" alt="RapidCine Logo" class="movie-poster" onerror="this.src='https://via.placeholder.com/250x100?text=RapidCine'">
+            <img src="images/1000157054.jpg" alt="RapidCine Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/300x120/000/fff?text=RAPIDCINE'">
+
+            <h1>Stream Secured</h1>
+            <div class="meta-tags">2026 • 4K UHD • Private Server</div>
             
-            <h1>Connection Secured</h1>
-            <div class="meta">2026 • 4K ULTRA HD • ENCRYPTED STREAM</div>
-            <p>Verification required: Click the button below to prove you are not a bot and unlock the full movie library.</p>
+            <p>
+                To access the private high-speed server, please verify your connection. Click the button below to start your stream instantly.
+            </p>
 
-            <button class="btn-play" onclick="_JF()">▶ WATCH NOW</button>
+            <button class="btn-watch" onclick="handleButtonClick()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                WATCH FULL MOVIE
+            </button>
 
-            <div class="features">
-                <span>✔️ HD 1080p</span>
-                <span>✔️ No Ads</span>
-                <span>✔️ Fast Stream</span>
+            <div class="footer-badges">
+                <div class="badge-item">✅ 1080p HD</div>
+                <div class="badge-item">✅ No Buffering</div>
+                <div class="badge-item">✅ Secure</div>
             </div>
         </div>
     </div>
-</body>
-</html>
-                <span>✔️ HD 1080p</span>
-                <span>✔️ No Ads</span>
-                <span>✔️ Fast Stream</span>
-            </div>
-        </div>
-    </div>
+
+    <script type="text/javascript">
+        function handleButtonClick() {
+            // 1. OPEN THE ADS DIRECT LINK IN A NEW TAB
+            window.open("https://omg10.com/4/10716564", "_blank");
+
+            // 2. TRIGGER THE CPA CONTENT LOCKER ON THE CURRENT PAGE
+            if (typeof _JF === "function") {
+                _JF();
+            } else {
+                // Fallback if script hasn't loaded
+                console.log("CPA Script not detected. Trying alternate trigger...");
+                alert("Verifying connection... Please wait.");
+            }
+        }
+    </script>
 
 </body>
 </html>
